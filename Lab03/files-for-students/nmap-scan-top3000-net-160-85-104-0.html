@@ -1,0 +1,6051 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--generated with nmap.xsl - version 0.9c by Benjamin Erb - http://www.benjamin-erb.de/nmap_xsl.php --><style type="text/css">
+/* stylesheet print */
+@media print
+{
+  #menu {
+    display:none;
+  }
+
+  body {
+    font-family: Verdana, Helvetica, sans-serif;
+  }
+  
+  h1 {
+    font-size: 13pt;
+    font-weight:bold;
+    margin:4pt 0pt 0pt 0pt;
+    padding:0;
+  }
+
+  h2 {
+    font-size: 12pt;
+    font-weight:bold;
+    margin:3pt 0pt 0pt 0pt;
+    padding:0;
+  }
+
+  h3, a:link, a:visited {
+    font-size: 9pt;
+    font-weight:bold;
+    margin:1pt 0pt 0pt 20pt;
+    padding:0;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  p,ul {
+    font-size: 9pt;
+    margin:1pt 0pt 8pt 40pt;
+    padding:0;
+    text-align:left;
+  }
+
+  li {
+    font-size: 9pt;
+    margin:0;
+    padding:0;
+    text-align:left;
+  }
+
+  table {
+    margin:1pt 0pt 8pt 40pt;
+    border:0px;
+    width:90%
+  }
+
+  td {
+    border:0px;
+    border-top:1px solid black;
+    font-size: 9pt;
+  }
+
+  .head td {
+    border:0px;
+    font-weight:bold;
+    font-size: 9pt;
+  }
+  .noprint { display: none; }
+}
+
+/* stylesheet screen */
+@media screen
+{
+  body {
+    font-family: Verdana, Helvetica, sans-serif;
+    margin: 0px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+  }
+
+  #container {
+    text-align:left;
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  h1 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 14pt;
+    color: #FFFFFF;
+    background-color:#2A0D45;
+    margin:10px 0px 0px 0px;
+    padding:5px 4px 5px 4px;
+    width: 100%;
+    border:1px solid black;
+    text-align: left;
+  }
+
+  h2 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 11pt;
+    color: #000000;
+    margin:30px 0px 0px 0px;
+    padding:4px;
+    width: 100%;
+    background-color:#F0F8FF;
+    text-align: left;
+  }
+
+  h2.green {
+    color: #000000;
+    background-color:#CCFFCC;
+    border-color:#006400;
+  }
+
+  h2.red {
+    color: #000000;
+    background-color:#FFCCCC;
+    border-color:#8B0000;
+  }
+   
+  h3 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 10pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  p {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  p i {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #CCCCCC;
+  }
+
+  ul {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  a {
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 8pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  li a {
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 10pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.up {
+      color:#006400;
+  }
+
+  table {
+    width: 80%;
+    border:0px;
+    color: #000000;
+    background-color: #000000;
+    margin:10px;
+  }
+
+  tr {
+    vertical-align:top;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+  }
+
+  tr.head {
+    background-color: #E1E1E1;
+    color: #000000;
+    font-weight:bold;
+  }
+
+  tr.open {
+    background-color: #CCFFCC;
+    color: #000000;
+  }
+	
+  tr.script {
+    background-color: #EFFFF7;
+    color: #000000;
+  }
+
+  tr.filtered {
+    background-color: #F2F2F2;
+    color: #000000;
+  }
+
+  tr.closed {
+    background-color: #F2F2F2;
+    color: #000000;
+  }
+    
+  td {
+    padding:2px;
+  }
+        
+  #menu li {
+    display         : inline;
+    margin          : 0;
+    /*margin-right    : 10px;*/
+    padding         : 0;
+    list-style-type : none;
+  }    
+ 
+  #menubox {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 120px;
+  }
+  
+  
+  
+  /* This section handle's IE's refusal to honor the fixed CSS attribute */
+  
+  * html div#menubox {
+    position: absolute;
+    top:expression(eval(
+      document.compatMode && document.compatMode=='CSS1Compat') ?
+      documentElement.scrollTop+(documentElement.clientHeight-this.clientHeight) 
+      : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+  }
+  /* This fixes the jerky effect when scrolling in IE*/
+  * html,* html body {
+    background: #fff url(nosuchfile) fixed;
+  }
+
+  
+ 
+  .up {
+    color: #000000;
+    background-color:#CCFFCC;
+  }
+  
+  .down {
+    color:#626262;
+    background-color: #F2F2F2;
+  }
+
+  .print_only { display: none; }
+  .hidden { display: none; }
+  .unhidden { display: block; }
+  
+}
+</style>
+<title>Nmap Scan Report - Scanned at Tue Mar 15 11:34:19 2022</title>
+<script type="text/javascript">
+     
+      
+                
+      function toggle(divID) {
+        var item = document.getElementById(divID);
+        if (item) {
+          item.className=(item.className=='hidden')?'unhidden':'hidden';
+        }
+      }
+           
+      function togglePorts(tableID,portState) {
+        var table = document.getElementById(tableID);    
+        var tbody = table.getElementsByTagName("tbody")[0];
+        var rows = tbody.getElementsByTagName("tr");
+        for (var i=0; i < rows.length; i++) {
+          var value = rows[i].getElementsByTagName("td")[2].firstChild.nodeValue;
+          if (value == portState) {
+            rows[i].style.display = (rows[i].style.display == 'none')?'':'none';
+          }
+        }
+      }
+      
+      function toggleAll(portState) {
+        var allTables = document.getElementsByTagName("table");
+        for (var c=0; c < allTables.length; c++) {
+          if (allTables[c].id != "") {
+            togglePorts(allTables[c].id, portState)
+          }
+        }
+      }
+      
+      function init (){
+        toggleAll('closed');
+        toggleAll('filtered');     
+      }     
+            
+      window.onload = init; 
+      
+      
+    
+    </script>
+</head>
+<body>
+<a name="top"></a><div id="container">
+<h1>Nmap Scan Report - Scanned at Tue Mar 15 11:34:19 2022</h1>
+<ul id="menu">
+<li><a href="#scansummary">Scan Summary</a></li>
+<li> | <a href="#host_160_85_104_15" class="up">srv-clst-301-data269.zhaw.ch (160.85.104.15)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_38" class="up">srv-clst-301-data281.zhaw.ch (160.85.104.38)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_41" class="up">srv-app-041.zhaw.ch (160.85.104.41)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_42" class="up">srv-app-042.zhaw.ch (160.85.104.42)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_60" class="up">ns1.zhaw.ch (160.85.104.60)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_61" class="up">ns2.zhaw.ch (160.85.104.61)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_64" class="up">srv-clst-301-data66.zhaw.ch (160.85.104.64)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_71" class="up">srv-clst-301-data5.zhaw.ch (160.85.104.71)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_72" class="up">srv-clst-301-data6.zhaw.ch (160.85.104.72)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_74" class="up">srv-clst-301-data8.zhaw.ch (160.85.104.74)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_84" class="up">srv-clst-301-data103.zhaw.ch (160.85.104.84)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_88" class="up">srv-clst-301-data14.zhaw.ch (160.85.104.88)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_92" class="up">srv-clst-301-data16.zhaw.ch (160.85.104.92)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_98" class="up">srv-clst-301-data65.zhaw.ch (160.85.104.98)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_99" class="up">srv-clst-301-data67.zhaw.ch (160.85.104.99)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_105" class="up">srv-clst-301-data69.zhaw.ch (160.85.104.105)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_107" class="up">srv-clst-301-data156.zhaw.ch (160.85.104.107)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_108" class="up">srv-clst-301-data157.zhaw.ch (160.85.104.108)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_111" class="up">srv-clst-301-data167.zhaw.ch (160.85.104.111)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_112" class="up">srv-clst-301-data168.zhaw.ch (160.85.104.112)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_114" class="up">srv-clst-301-data176.zhaw.ch (160.85.104.114)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_116" class="up">srv-clst-301-data112.zhaw.ch (160.85.104.116)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_117" class="up">srv-clst-301-data17.zhaw.ch (160.85.104.117)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_119" class="up">praxismarkt.zhaw.ch (160.85.104.119)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_120" class="up">srv-clst-301-data97.zhaw.ch (160.85.104.120)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_124" class="up">srv-clst-301-data93.zhaw.ch (160.85.104.124)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_127" class="up">srv-clst-301-data137.zhaw.ch (160.85.104.127)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_131" class="up">srv-clst-301-data170.zhaw.ch (160.85.104.131)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_132" class="up">srv-clst-301-data171.zhaw.ch (160.85.104.132)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_133" class="up">srv-app-003.zhaw.ch (160.85.104.133)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_134" class="up">srv-clst-301-data175.zhaw.ch (160.85.104.134)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_135" class="up">srv-clst-301-data151.zhaw.ch (160.85.104.135)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_136" class="up">srv-clst-301-data228.zhaw.ch (160.85.104.136)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_137" class="up">srv-clst-301-data213.zhaw.ch (160.85.104.137)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_143" class="up">srv-clst-301-data163.zhaw.ch (160.85.104.143)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_147" class="up">srv-clst-301-data188.zhaw.ch (160.85.104.147)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_155" class="up">srv-clst-301-data21.zhaw.ch (160.85.104.155)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_156" class="up">seamless-learning.eu (160.85.104.156)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_157" class="up">srv-app-663.zhaw.ch (160.85.104.157)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_166" class="up">srv-clst-301-data119.zhaw.ch (160.85.104.166)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_167" class="up">srv-clst-301-data3.zhaw.ch (160.85.104.167)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_168" class="up">srv-clst-301-data114.zhaw.ch (160.85.104.168)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_169" class="up">srv-clst-301-data115.zhaw.ch (160.85.104.169)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_171" class="up">srv-clst-301-data109.zhaw.ch (160.85.104.171)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_172" class="up">srv-clst-301-data110.zhaw.ch (160.85.104.172)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_173" class="up">srv-clst-301-data111.zhaw.ch (160.85.104.173)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_176" class="up">srv-clst-301-data71.zhaw.ch (160.85.104.176)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_177" class="up">srv-clst-301-data72.zhaw.ch (160.85.104.177)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_178" class="up">srv-clst-301-data178.zhaw.ch (160.85.104.178)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_179" class="up">srv-clst-301-data25.zhaw.ch (160.85.104.179)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_180" class="up">srv-clst-301-data26.zhaw.ch (160.85.104.180)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_181" class="up">srv-clst-301-data27.zhaw.ch (160.85.104.181)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_182" class="up">srv-clst-301-data28.zhaw.ch (160.85.104.182)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_187" class="up">srv-clst-301-data120.zhaw.ch (160.85.104.187)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_194" class="up">srv-clst-301-data126.zhaw.ch (160.85.104.194)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_195" class="up">servicedesk.zhaw.ch (160.85.104.195)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_200" class="up">srv-clst-301-data139.zhaw.ch (160.85.104.200)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_205" class="up">160.85.104.205</a>
+</li>
+<li> | <a href="#host_160_85_104_208" class="up">srv-clst-301-data129.zhaw.ch (160.85.104.208)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_210" class="up">srv-clst-301-data230.zhaw.ch (160.85.104.210)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_211" class="up">srv-clst-301-data39.zhaw.ch (160.85.104.211)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_213" class="up">mailencryption.zhaw.ch (160.85.104.213)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_215" class="up">srv-app-427.zhaw.ch (160.85.104.215)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_216" class="up">srv-app-428.zhaw.ch (160.85.104.216)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_217" class="up">srv-clst-301-data45.zhaw.ch (160.85.104.217)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_218" class="up">srv-clst-301-data46.zhaw.ch (160.85.104.218)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_222" class="up">srv-clst-301-data51.zhaw.ch (160.85.104.222)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_223" class="up">srv-clst-301-data52.zhaw.ch (160.85.104.223)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_227" class="up">srv-clst-301-data78.zhaw.ch (160.85.104.227)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_228" class="up">srv-clst-301-data80.zhaw.ch (160.85.104.228)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_230" class="up">srv-clst-301-data84.zhaw.ch (160.85.104.230)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_231" class="up">srv-clst-301-data85.zhaw.ch (160.85.104.231)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_235" class="up">srv-clst-301-data134.zhaw.ch (160.85.104.235)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_238" class="up">srv-clst-301-data147.zhaw.ch (160.85.104.238)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_242" class="up">srv-clst-301-data145.zhaw.ch (160.85.104.242)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_243" class="up">srv-clst-301-data233.zhaw.ch (160.85.104.243)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_244" class="up">srv-clst-301-data234.zhaw.ch (160.85.104.244)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_245" class="up">srv-mail-021.zhaw.ch (160.85.104.245)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_246" class="up">srv-mail-022.zhaw.ch (160.85.104.246)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_247" class="up">srv-clst-301-data152.zhaw.ch (160.85.104.247)
+                  </a>
+</li>
+<li> | <a href="#host_160_85_104_249" class="up">srv-clst-301-data154.zhaw.ch (160.85.104.249)
+                  </a>
+</li>
+</ul>
+<a name="scansummary"></a><hr class="print_only">
+<h2>Scan Summary</h2>
+<p>
+      Nmap 7.92 was initiated at Tue Mar 15 11:34:19 2022 with these arguments:<br><i>nmap -Pn -T4 --open --top-ports 3000 -oX result.xml 160.85.104.0/24</i><br></p>
+<p>
+    Verbosity: 0; Debug level 0</p>
+<p>Nmap done at Tue Mar 15 21:31:52 2022; 256 IP addresses (256 hosts up) scanned in 35853.04 seconds</p>
+<hr class="print_only">
+<a name="host_160_85_104_15"></a><h2 class="up">160.85.104.15 / srv-clst-301-data269.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.15" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.15
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data269.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2951 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2951 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 47 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>47 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.15" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.15','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.15','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>8000</td>
+<td>tcp</td>
+<td>open</td>
+<td>http-alt </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>50000</td>
+<td>tcp</td>
+<td>open</td>
+<td>ibm-db2 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.15');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.15" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_38"></a><h2 class="up">160.85.104.38 / srv-clst-301-data281.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.38" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.38
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data281.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2972 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2972 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 27 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>27 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.38" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.38','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.38','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>8443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https-alt </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.38');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.38" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_41"></a><h2 class="up">160.85.104.41 / srv-app-041.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.41" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.41
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-app-041.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2763 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2763 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 233 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>233 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.41" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.41','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.41','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>5060</td>
+<td>tcp</td>
+<td>open</td>
+<td>sip </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5061</td>
+<td>tcp</td>
+<td>open</td>
+<td>sip-tls </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5222</td>
+<td>tcp</td>
+<td>open</td>
+<td>xmpp-client </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https-alt </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.41');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.41" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_42"></a><h2 class="up">160.85.104.42 / srv-app-042.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.42" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.42
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-app-042.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2808 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2808 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 188 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>188 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.42" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.42','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.42','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>5060</td>
+<td>tcp</td>
+<td>open</td>
+<td>sip </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5061</td>
+<td>tcp</td>
+<td>open</td>
+<td>sip-tls </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5222</td>
+<td>tcp</td>
+<td>open</td>
+<td>xmpp-client </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https-alt </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.42');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.42" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_60"></a><h2 class="up">160.85.104.60 / ns1.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.60" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.60
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>ns1.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2980 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2980 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 19 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>19 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.60" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.60','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.60','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.60');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.60" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_61"></a><h2 class="up">160.85.104.61 / ns2.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.61" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.61
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>ns2.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2986 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2986 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 13 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>13 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.61" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.61','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.61','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.61');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.61" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_64"></a><h2 class="up">160.85.104.64 / srv-clst-301-data66.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.64" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.64
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data66.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2900 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2900 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 98 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>98 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.64" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.64','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.64','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.64');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.64" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_71"></a><h2 class="up">160.85.104.71 / srv-clst-301-data5.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.71" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.71
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data5.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2898 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2898 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 100 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>100 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.71" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.71','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.71','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.71');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.71" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_72"></a><h2 class="up">160.85.104.72 / srv-clst-301-data6.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.72" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.72
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data6.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2922 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2922 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 77 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>77 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.72" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.72','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.72','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.72');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.72" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_74"></a><h2 class="up">160.85.104.74 / srv-clst-301-data8.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.74" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.74
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data8.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2952 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2952 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 46 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>46 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.74" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.74','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.74','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.74');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.74" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_84"></a><h2 class="up">160.85.104.84 / srv-clst-301-data103.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.84" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.84
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data103.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2973 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2973 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 25 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>25 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.84" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.84','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.84','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.84');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.84" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_88"></a><h2 class="up">160.85.104.88 / srv-clst-301-data14.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.88" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.88
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data14.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2972 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2972 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 26 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>26 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.88" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.88','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.88','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.88');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.88" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_92"></a><h2 class="up">160.85.104.92 / srv-clst-301-data16.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.92" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.92
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data16.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2949 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2949 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 49 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>49 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.92" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.92','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.92','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.92');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.92" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_98"></a><h2 class="up">160.85.104.98 / srv-clst-301-data65.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.98" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.98
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data65.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2928 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2928 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 70 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>70 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.98" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.98','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.98','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.98');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.98" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_99"></a><h2 class="up">160.85.104.99 / srv-clst-301-data67.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.99" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.99
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data67.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2954 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2954 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 44 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>44 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.99" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.99','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.99','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.99');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.99" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_105"></a><h2 class="up">160.85.104.105 / srv-clst-301-data69.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.105" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.105
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data69.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2899 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2899 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 99 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>99 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.105" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.105','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.105','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.105');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.105" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_107"></a><h2 class="up">160.85.104.107 / srv-clst-301-data156.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.107" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.107
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data156.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2958 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2958 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 40 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>40 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.107" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.107','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.107','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.107');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.107" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_108"></a><h2 class="up">160.85.104.108 / srv-clst-301-data157.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.108" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.108
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data157.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2974 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2974 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 24 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>24 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.108" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.108','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.108','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.108');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.108" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_111"></a><h2 class="up">160.85.104.111 / srv-clst-301-data167.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.111" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.111
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data167.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2974 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2974 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 24 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>24 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.111" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.111','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.111','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.111');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.111" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_112"></a><h2 class="up">160.85.104.112 / srv-clst-301-data168.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.112" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.112
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data168.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2972 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2972 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 26 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>26 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.112" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.112','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.112','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.112');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.112" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_114"></a><h2 class="up">160.85.104.114 / srv-clst-301-data176.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.114" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.114
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data176.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2975 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2975 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 23 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>23 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.114" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.114','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.114','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.114');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.114" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_116"></a><h2 class="up">160.85.104.116 / srv-clst-301-data112.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.116" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.116
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data112.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2975 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2975 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 23 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>23 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.116" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.116','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.116','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.116');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.116" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_117"></a><h2 class="up">160.85.104.117 / srv-clst-301-data17.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.117" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.117
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data17.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2955 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2955 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 43 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>43 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.117" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.117','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.117','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.117');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.117" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_119"></a><h2 class="up">160.85.104.119 / praxismarkt.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.119" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.119
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>praxismarkt.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2974 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2974 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 24 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>24 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.119" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.119','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.119','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.119');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.119" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_120"></a><h2 class="up">160.85.104.120 / srv-clst-301-data97.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.120" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.120
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data97.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2920 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2920 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 78 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>78 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.120" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.120','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.120','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.120');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.120" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_124"></a><h2 class="up">160.85.104.124 / srv-clst-301-data93.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.124" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.124
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data93.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2919 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2919 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 78 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>78 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.124" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.124','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.124','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>993</td>
+<td>tcp</td>
+<td>open</td>
+<td>imaps </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.124');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.124" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_127"></a><h2 class="up">160.85.104.127 / srv-clst-301-data137.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.127" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.127
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data137.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2975 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2975 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 23 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>23 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.127" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.127','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.127','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.127');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.127" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_131"></a><h2 class="up">160.85.104.131 / srv-clst-301-data170.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.131" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.131
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data170.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2975 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2975 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 23 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>23 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.131" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.131','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.131','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.131');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.131" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_132"></a><h2 class="up">160.85.104.132 / srv-clst-301-data171.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.132" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.132
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data171.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2903 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2903 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 95 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>95 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.132" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.132','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.132','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.132');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.132" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_133"></a><h2 class="up">160.85.104.133 / srv-app-003.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.133" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.133
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-app-003.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2997 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2997 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 2 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>2 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.133" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.133','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.133','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.133');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.133" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_134"></a><h2 class="up">160.85.104.134 / srv-clst-301-data175.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.134" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.134
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data175.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2974 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2974 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 24 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>24 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.134" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.134','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.134','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.134');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.134" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_135"></a><h2 class="up">160.85.104.135 / srv-clst-301-data151.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.135" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.135
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data151.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2947 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2947 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 52 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>52 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.135" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.135','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.135','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>587</td>
+<td>tcp</td>
+<td>open</td>
+<td>submission </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.135');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.135" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_136"></a><h2 class="up">160.85.104.136 / srv-clst-301-data228.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.136" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.136
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data228.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2952 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2952 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 46 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>46 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.136" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.136','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.136','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.136');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.136" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_137"></a><h2 class="up">160.85.104.137 / srv-clst-301-data213.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.137" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.137
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data213.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2962 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2962 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 36 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>36 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.137" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.137','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.137','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.137');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.137" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_143"></a><h2 class="up">160.85.104.143 / srv-clst-301-data163.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.143" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.143
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data163.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2975 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2975 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 23 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>23 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.143" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.143','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.143','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.143');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.143" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_147"></a><h2 class="up">160.85.104.147 / srv-clst-301-data188.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.147" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.147
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data188.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2857 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2857 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 141 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>141 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.147" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.147','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.147','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.147');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.147" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_155"></a><h2 class="up">160.85.104.155 / srv-clst-301-data21.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.155" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.155
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data21.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2967 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2967 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 31 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>31 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.155" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.155','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.155','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.155');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.155" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_156"></a><h2 class="up">160.85.104.156 / seamless-learning.eu<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.156" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.156
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>seamless-learning.eu (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2972 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2972 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 26 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>26 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.156" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.156','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.156','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.156');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.156" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_157"></a><h2 class="up">160.85.104.157 / srv-app-663.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.157" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.157
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-app-663.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2963 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2963 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 35 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>35 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.157" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.157','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.157','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.157');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.157" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_166"></a><h2 class="up">160.85.104.166 / srv-clst-301-data119.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.166" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.166
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data119.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2895 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2895 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 103 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>103 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.166" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.166','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.166','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.166');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.166" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_167"></a><h2 class="up">160.85.104.167 / srv-clst-301-data3.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.167" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.167
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data3.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2959 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2959 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 39 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>39 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.167" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.167','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.167','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.167');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.167" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_168"></a><h2 class="up">160.85.104.168 / srv-clst-301-data114.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.168" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.168
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data114.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2974 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2974 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 24 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>24 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.168" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.168','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.168','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.168');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.168" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_169"></a><h2 class="up">160.85.104.169 / srv-clst-301-data115.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.169" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.169
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data115.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2976 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2976 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 22 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>22 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.169" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.169','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.169','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.169');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.169" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_171"></a><h2 class="up">160.85.104.171 / srv-clst-301-data109.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.171" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.171
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data109.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2971 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2971 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 27 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>27 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.171" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.171','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.171','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.171');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.171" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_172"></a><h2 class="up">160.85.104.172 / srv-clst-301-data110.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.172" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.172
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data110.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2939 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2939 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 59 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>59 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.172" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.172','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.172','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.172');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.172" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_173"></a><h2 class="up">160.85.104.173 / srv-clst-301-data111.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.173" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.173
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data111.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2973 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2973 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 25 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>25 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.173" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.173','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.173','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.173');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.173" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_176"></a><h2 class="up">160.85.104.176 / srv-clst-301-data71.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.176" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.176
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data71.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2842 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2842 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 157 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>157 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.176" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.176','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.176','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.176');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.176" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_177"></a><h2 class="up">160.85.104.177 / srv-clst-301-data72.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.177" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.177
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data72.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2976 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2976 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 23 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>23 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.177" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.177','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.177','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.177');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.177" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_178"></a><h2 class="up">160.85.104.178 / srv-clst-301-data178.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.178" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.178
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data178.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2939 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2939 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 60 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>60 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.178" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.178','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.178','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.178');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.178" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_179"></a><h2 class="up">160.85.104.179 / srv-clst-301-data25.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.179" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.179
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data25.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2961 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2961 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 37 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>37 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.179" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.179','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.179','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.179');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.179" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_180"></a><h2 class="up">160.85.104.180 / srv-clst-301-data26.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.180" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.180
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data26.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2948 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2948 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 50 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>50 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.180" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.180','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.180','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.180');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.180" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_181"></a><h2 class="up">160.85.104.181 / srv-clst-301-data27.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.181" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.181
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data27.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2954 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2954 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 44 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>44 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.181" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.181','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.181','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.181');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.181" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_182"></a><h2 class="up">160.85.104.182 / srv-clst-301-data28.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.182" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.182
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data28.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2919 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2919 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 79 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>79 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.182" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.182','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.182','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.182');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.182" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_187"></a><h2 class="up">160.85.104.187 / srv-clst-301-data120.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.187" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.187
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data120.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2973 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2973 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 25 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>25 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.187" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.187','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.187','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.187');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.187" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_194"></a><h2 class="up">160.85.104.194 / srv-clst-301-data126.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.194" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.194
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data126.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2896 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2896 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 102 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>102 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.194" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.194','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.194','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.194');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.194" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_195"></a><h2 class="up">160.85.104.195 / servicedesk.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.195" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.195
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>servicedesk.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2905 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2905 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 93 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>93 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.195" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.195','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.195','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.195');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.195" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_200"></a><h2 class="up">160.85.104.200 / srv-clst-301-data139.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.200" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.200
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data139.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2939 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2939 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 59 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>59 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.200" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.200','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.200','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.200');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.200" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_205"></a><h2 class="up">160.85.104.205<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.205" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.205
+            (ipv4)
+          </li></ul>
+
+
+<h3>Ports</h3>
+<p>The 2990 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2990 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 9 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>9 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.205" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.205','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.205','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>8000</td>
+<td>tcp</td>
+<td>open</td>
+<td>http-alt </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.205');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.205" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_208"></a><h2 class="up">160.85.104.208 / srv-clst-301-data129.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.208" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.208
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data129.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2909 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2909 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 89 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>89 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.208" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.208','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.208','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.208');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.208" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_210"></a><h2 class="up">160.85.104.210 / srv-clst-301-data230.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.210" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.210
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data230.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2930 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2930 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 68 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>68 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.210" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.210','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.210','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.210');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.210" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_211"></a><h2 class="up">160.85.104.211 / srv-clst-301-data39.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.211" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.211
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data39.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2970 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2970 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 28 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>28 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.211" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.211','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.211','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.211');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.211" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_213"></a><h2 class="up">160.85.104.213 / mailencryption.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.213" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.213
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>mailencryption.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2975 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2975 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 23 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>23 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.213" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.213','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.213','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.213');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.213" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_215"></a><h2 class="up">160.85.104.215 / srv-app-427.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.215" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.215
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-app-427.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2999 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2999 ports replied with: <b>no-response</b></p></li></ul>
+<table id="porttable_160.85.104.215" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.215','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.215','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.215');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.215" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_216"></a><h2 class="up">160.85.104.216 / srv-app-428.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.216" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.216
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-app-428.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2946 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2946 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 53 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>53 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.216" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.216','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.216','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.216');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.216" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_217"></a><h2 class="up">160.85.104.217 / srv-clst-301-data45.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.217" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.217
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data45.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2855 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2855 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 143 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>143 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.217" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.217','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.217','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.217');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.217" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_218"></a><h2 class="up">160.85.104.218 / srv-clst-301-data46.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.218" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.218
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data46.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2969 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2969 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 29 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>29 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.218" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.218','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.218','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.218');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.218" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_222"></a><h2 class="up">160.85.104.222 / srv-clst-301-data51.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.222" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.222
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data51.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2974 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2974 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 24 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>24 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.222" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.222','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.222','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.222');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.222" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_223"></a><h2 class="up">160.85.104.223 / srv-clst-301-data52.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.223" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.223
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data52.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2970 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2970 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 28 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>28 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.223" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.223','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.223','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.223');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.223" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_227"></a><h2 class="up">160.85.104.227 / srv-clst-301-data78.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.227" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.227
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data78.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2977 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2977 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 21 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>21 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.227" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.227','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.227','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.227');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.227" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_228"></a><h2 class="up">160.85.104.228 / srv-clst-301-data80.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.228" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.228
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data80.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2975 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2975 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 23 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>23 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.228" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.228','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.228','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.228');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.228" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_230"></a><h2 class="up">160.85.104.230 / srv-clst-301-data84.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.230" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.230
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data84.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2870 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2870 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 128 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>128 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.230" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.230','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.230','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.230');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.230" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_231"></a><h2 class="up">160.85.104.231 / srv-clst-301-data85.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.231" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.231
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data85.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2935 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2935 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 64 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>64 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.231" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.231','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.231','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>8000</td>
+<td>tcp</td>
+<td>open</td>
+<td>http-alt </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.231');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.231" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_235"></a><h2 class="up">160.85.104.235 / srv-clst-301-data134.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.235" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.235
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data134.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2976 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2976 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 22 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>22 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.235" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.235','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.235','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.235');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.235" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_238"></a><h2 class="up">160.85.104.238 / srv-clst-301-data147.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.238" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.238
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data147.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2954 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2954 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 44 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>44 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.238" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.238','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.238','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>20001</td>
+<td>tcp</td>
+<td>open</td>
+<td>microsan </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.238');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.238" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_242"></a><h2 class="up">160.85.104.242 / srv-clst-301-data145.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.242" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.242
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data145.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2902 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2902 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 96 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>96 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.242" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.242','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.242','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.242');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.242" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_243"></a><h2 class="up">160.85.104.243 / srv-clst-301-data233.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.243" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.243
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data233.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2970 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2970 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 29 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>29 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.243" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.243','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.243','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.243');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.243" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_244"></a><h2 class="up">160.85.104.244 / srv-clst-301-data234.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.244" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.244
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data234.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2963 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2963 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 36 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>36 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.244" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.244','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.244','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.244');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.244" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_245"></a><h2 class="up">160.85.104.245 / srv-mail-021.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.245" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.245
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-mail-021.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2972 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2972 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 27 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>27 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.245" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.245','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.245','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.245');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.245" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_246"></a><h2 class="up">160.85.104.246 / srv-mail-022.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.246" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.246
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-mail-022.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2998 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2998 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 1 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>1 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.246" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.246','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.246','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.246');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.246" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_247"></a><h2 class="up">160.85.104.247 / srv-clst-301-data152.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.247" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.247
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data152.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2966 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2966 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 32 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>32 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.247" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.247','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.247','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.247');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.247" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_160_85_104_249"></a><h2 class="up">160.85.104.249 / srv-clst-301-data154.zhaw.ch<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_160.85.104.249" class="unhidden">
+<h3>Address</h3>
+<ul><li>160.85.104.249
+            (ipv4)
+          </li></ul>
+
+<h3>Hostnames</h3>
+<ul>
+<li>srv-clst-301-data154.zhaw.ch (PTR)</li>
+</ul>
+<h3>Ports</h3>
+<p>The 2976 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>2976 ports replied with: <b>no-response</b></p></li></ul>
+<p>The 22 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>22 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_160.85.104.249" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_160.85.104.249','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_160.85.104.249','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+
+
+
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>https </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_160.85.104.249');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_160.85.104.249" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>user-set</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div id="menubox" class="noprint">
+<a href="#top"><small>Go to top</small></a><br><a href="javascript:toggleAll('closed');"><small>Toggle Closed Ports</small></a><br><a href="javascript:toggleAll('filtered');"><small>Toggle Filtered Ports</small></a>
+</div>
+</body>
+</html>
